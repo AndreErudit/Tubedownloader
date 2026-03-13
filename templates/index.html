@@ -1,62 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-
-<title>YouTube Downloader</title>
-
-<link rel="stylesheet" href="/static/style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Télécharge gratuitement vidéos YouTube, TikTok, Facebook, Instagram. MP3, 720p, 1080p.">
+    <meta name="keywords" content="youtube downloader, tiktok downloader, video mp3, download video online">
+    <title>Smart Video Downloader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
+
+<header>
+    <h1>Smart Video Downloader</h1>
+    <p>Télécharge vidéos YouTube, TikTok, Facebook, Instagram facilement</p>
+</header>
 
 <div class="container">
 
-<h1>Youtube Video Downloader</h1>
+    {% if message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
 
-<form method="POST">
+    <form method="POST">
+        <input type="text" name="url" placeholder="Colle le lien de la vidéo" required>
+        <button type="submit">Analyser la vidéo</button>
+    </form>
 
-<input type="text" name="url" placeholder="Paste YouTube link">
+    {% if video %}
+        <div class="video-box">
+            <img src="{{ video.thumbnail }}" alt="Thumbnail">
+            <h2>{{ video.title }}</h2>
 
-<button type="submit">Search</button>
-
-</form>
-
-{% if video %}
-
-<div class="preview">
-
-<img src="{{video.thumbnail}}" width="300">
-
-<h2>{{video.title}}</h2>
-
-<form action="/download" method="POST">
-
-<select name="format">
-
-<option value="mp3">MP3</option>
-<option value="720">720p</option>
-<option value="1080">1080p</option>
-
-</select>
-
-<button type="submit">Download</button>
-
-</form>
+            <form action="/download" method="POST">
+                <input type="hidden" name="url" value="{{ video.url }}">
+                <select name="quality" required>
+                    <option value="mp3">MP3</option>
+                    <option value="720">720p</option>
+                    <option value="1080">1080p</option>
+                </select>
+                <button type="submit">Télécharger</button>
+            </form>
+        </div>
+    {% endif %}
 
 </div>
-
-{% endif %}
-
-<div class="progress">
-
-<div id="bar"></div>
-
-</div>
-
-</div>
-
-<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 </html>

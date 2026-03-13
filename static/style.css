@@ -1,58 +1,96 @@
+/* Général */
 body{
-font-family:Arial;
-background:#0f172a;
-color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
+/* Header */
+header{
+    padding: 40px 20px;
+}
+
+header h1{
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #3b82f6;
+}
+
+header p{
+    font-size: 1.2rem;
+    color: #cbd5e1;
+}
+
+/* Container */
 .container{
-background:#1e293b;
-padding:40px;
-border-radius:10px;
-text-align:center;
-width:450px;
+    width: 450px;
+    margin: auto;
+    margin-top: 30px;
 }
 
-input{
-width:90%;
-padding:12px;
-margin:10px;
-border:none;
-border-radius:5px;
+/* Message d'erreur / succès */
+.message{
+    background-color: #ef4444;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Formulaire principal */
+input[type=text]{
+    width: 100%;
+    padding: 14px;
+    border-radius: 6px;
+    border: none;
+    margin-bottom: 10px;
+    font-size: 1rem;
 }
 
 button{
-padding:12px 25px;
-background:#ef4444;
-border:none;
-color:white;
-border-radius:5px;
-cursor:pointer;
+    background: #3b82f6;
+    border: none;
+    padding: 14px;
+    width: 100%;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 button:hover{
-background:#dc2626;
+    background: #2563eb;
 }
 
-.preview img{
-margin-top:20px;
-border-radius:10px;
+/* Box vidéo analysée */
+.video-box{
+    margin-top: 30px;
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
 }
 
-.progress{
-width:100%;
-height:10px;
-background:#444;
-margin-top:20px;
-border-radius:10px;
+.video-box img{
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
-#bar{
-width:0%;
-height:100%;
-background:#22c55e;
-border-radius:10px;
+.video-box h2{
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+/* Sélecteur de qualité */
+select{
+    width: 50%;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    margin-bottom: 15px;
+    font-size: 1rem;
 }
